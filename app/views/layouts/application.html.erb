@@ -11,9 +11,36 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    <main class="container mx-auto mt-28 px-5 flex">
-      <%= yield %>
-    </main>
+  <body class="bg-slate-500">
+    <nav class="bg-slate-200 p-4 flex justify-between sticky top-0 h-20 items-center z-10">
+      <div class="">
+        logo
+      </div>
+      <div class="flex space-x-2 items-center">
+        <div class="">
+          email
+        </div>
+        <div class="md:hidden text-3xl">
+          &#9776;
+        </div>
+      </div>
+    </nav>
+    <div class="bg-slate-300 flex">
+      <nav class="bg-slate-400 w-1/6 hidden md:flex flex-col text-center p-4 justify-between sticky top-20 h-[calc(100vh-80px)]">
+        <div>
+          sidebar top
+        </div>
+        <div>
+          sidebar bottom
+        </div>
+      </nav>
+      <main class="bg-slate-500 w-5/6 p-4 flex-grow">
+        main
+        <% (1..10).each do |i| %>
+          <p><%= i%></p>
+        <% end %>
+        <%= yield %>
+      </main>
+    </div>
   </body>
 </html>
