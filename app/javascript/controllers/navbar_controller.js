@@ -1,10 +1,17 @@
 import { Controller } from "@hotwired/stimulus"
+// https://github.com/stimulus-use/stimulus-use/blob/main/docs/use-click-outside.md
+import { useClickOutside } from 'stimulus-use'
 
 // Connects to data-controller="navbar"
 export default class extends Controller {
   static targets = ["content"]
   connect() {
+    useClickOutside(this)
     // this.close()
+  }
+
+  clickOutside(event) {
+    this.close()
   }
 
   closeWithKeyboard(event) {
