@@ -12,19 +12,28 @@
   </head>
 
   <body class="bg-slate-500">
-    <nav class="bg-slate-200 p-4 flex justify-between sticky top-0 h-20 items-center z-10">
-      <div class="">
-        logo
-      </div>
-      <div class="flex space-x-2 items-center">
+    <div class="sticky top-0 z-10" data-controller="navbar" data-action="resize@window->navbar#closeOnBigScreen keyup@window->navbar#closeWithKeyboard">
+      <nav class="bg-slate-200 p-4 flex justify-between h-20 items-center ">
         <div class="">
-          email
+          logo
         </div>
-        <div class="md:hidden text-3xl">
-          &#9776;
+        <div class="flex space-x-2 items-center">
+          <div class="">
+            email
+          </div>
+          <div class="md:hidden text-3xl" role="button" data-action="click->navbar#toggle">
+            &#9776;
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+      <%# <nav class="bg-rose-300 hidden absolute w-2/3 right-4 text-center h-80 overflow-y-auto" data-navbar-target="content"> %>
+      <nav class="bg-rose-300 hidden absolute w-full text-center h-80 overflow-y-auto" data-navbar-target="content">
+        dropdown
+        <% (300..400).each do |i| %>
+          <p><%= i%></p>
+        <% end %>
+      </nav>
+    </div>
     <div class="bg-slate-300 flex">
       <nav class="bg-slate-400 w-1/6 hidden md:flex flex-col text-center p-4 justify-between sticky top-20 h-[calc(100vh-80px)]">
         <div>
@@ -36,7 +45,7 @@
       </nav>
       <main class="bg-slate-500 w-5/6 p-4 flex-grow">
         main
-        <% (1..10).each do |i| %>
+        <% (1..100).each do |i| %>
           <p><%= i%></p>
         <% end %>
         <%= yield %>
