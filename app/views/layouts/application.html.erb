@@ -44,6 +44,26 @@
         </div>
       </nav>
       <main class="bg-slate-500 w-5/6 p-4 flex-grow">
+
+        <%= Time.zone.now %>
+        <div data-controller="dialog" data-action="click->dialog#clickOutside">
+          <button data-action="click->dialog#open">Open modal</button>
+          <dialog data-dialog-target="modal" class="backdrop:bg-slate-400 backdrop:opacity-80 w-full lg:w-2/3">
+            <div class="p-4">
+              <p>Greetings, one and all!</p>
+              <form>
+                <button formmethod="dialog">Cancel</button>
+                <button>Submit</button>
+              </form>
+              <% (1..100).each do |i| %>
+                <div class="bg-rose-400">
+                  <%= i%>
+                </div>
+              <% end %>
+            </div>
+          </dialog>
+        </div>
+
         2-column layout with fixed widths
         <div class="flex flex-col md:flex-row gap-4">
           <div class="w-full md:w-3/4">
