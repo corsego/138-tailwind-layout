@@ -12,111 +12,12 @@
   </head>
 
   <body class="bg-slate-500">
-    <div class="sticky top-0 z-10" data-controller="navbar" data-action="resize@window->navbar#closeOnBigScreen keyup@window->navbar#closeWithKeyboard">
-      <nav class="bg-slate-200 p-4 flex justify-between h-20 items-center ">
-        <div class="">
-          logo
-        </div>
-        <div class="flex space-x-2 items-center">
-          <div class="">
-            email
-          </div>
-          <div class="md:hidden text-3xl" role="button" data-action="click->navbar#toggle">
-            &#9776;
-          </div>
-        </div>
-      </nav>
-      <%# <nav class="bg-rose-300 hidden absolute w-2/3 right-4 text-center h-80 overflow-y-auto" data-navbar-target="content"> %>
-      <nav class="bg-rose-300 hidden absolute w-full text-center h-80 overflow-y-auto" data-navbar-target="content">
-        dropdown
-        <% (300..400).each do |i| %>
-          <p><%= i%></p>
-        <% end %>
-      </nav>
-    </div>
+    <%= render 'layouts/navbar' %>
     <div class="bg-slate-300 flex">
-      <nav class="bg-slate-400 w-1/6 hidden md:flex flex-col text-center p-4 justify-between sticky top-20 h-[calc(100vh-80px)]">
-        <div>
-          sidebar top
-        </div>
-        <div>
-          sidebar bottom
-        </div>
-      </nav>
+      <%= render 'layouts/sidebar' %>
       <main class="bg-slate-500 w-5/6 p-4 flex-grow">
-
         <%= Time.zone.now %>
-        <div data-controller="dialog" data-action="click->dialog#clickOutside">
-          <button data-action="click->dialog#open">Open modal</button>
-          <dialog data-dialog-target="modal" class="backdrop:bg-slate-400 backdrop:opacity-80 w-full lg:w-2/3">
-            <div class="p-4">
-              <p>Greetings, one and all!</p>
-              <form>
-                <button formmethod="dialog">Cancel</button>
-                <button>Submit</button>
-              </form>
-              <% (1..100).each do |i| %>
-                <div class="bg-rose-400">
-                  <%= i%>
-                </div>
-              <% end %>
-            </div>
-          </dialog>
-        </div>
-
-        2-column layout with fixed widths
-        <div class="flex flex-col md:flex-row gap-4">
-          <div class="w-full md:w-3/4">
-            <% (1..10).each do |i| %>
-              <div class="bg-rose-400">
-                <%= i%>
-              </div>
-            <% end %>
-          </div>
-          <div class="w-full md:w-1/4">
-            <% (11..20).each do |i| %>
-              <div class="bg-rose-300">
-                <%= i%>
-              </div>
-            <% end %>
-          </div>
-        </div>
-
-        2-column layout with max width for first element
-        <div class="flex flex-col md:flex-row gap-4">
-          <div class="flex-1">
-            <% (101..110).each do |i| %>
-              <div class="bg-rose-400">
-                <%= i%>
-              </div>
-            <% end %>
-          </div>
-          <div class="">
-            <% (111..120).each do |i| %>
-              <div class="bg-rose-300">
-                <%= i%>
-              </div>
-            <% end %>
-          </div>
-        </div>
-
-        centered
-        <div class="mx-auto w-full md:w-2/3">
-          <% (201..210).each do |i| %>
-            <div class="bg-rose-300">
-              <%= i%>
-            </div>
-          <% end %>
-        </div>
-
-        responsive grid
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 bg-rose-200 gap-2">
-          <% (301..310).each do |i| %>
-            <div class="bg-rose-300">
-              <%= i%>
-            </div>
-          <% end %>
-        </div>
+        <%= render 'layouts/modal' %>
         <%= yield %>
       </main>
     </div>

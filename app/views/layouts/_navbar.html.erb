@@ -1,0 +1,22 @@
+<div class="sticky top-0 z-10" data-controller="navbar" data-action="resize@window->navbar#closeOnBigScreen keyup@window->navbar#closeWithKeyboard">
+  <nav class="bg-slate-200 p-4 flex justify-between h-20 items-center ">
+    <div class="">
+      logo
+    </div>
+    <div class="flex space-x-2 items-center">
+      <div class="">
+        email
+      </div>
+      <div class="md:hidden text-3xl" role="button" data-action="click->navbar#toggle">
+        &#9776;
+      </div>
+    </div>
+  </nav>
+  <%# <nav class="bg-rose-300 hidden absolute w-2/3 right-4 text-center h-80 overflow-y-auto" data-navbar-target="content"> %>
+  <nav class="bg-rose-300 hidden absolute w-full text-center h-80 overflow-y-auto" data-navbar-target="content">
+    dropdown
+    <% (300..400).each do |i| %>
+      <p><%= i%></p>
+    <% end %>
+  </nav>
+</div>

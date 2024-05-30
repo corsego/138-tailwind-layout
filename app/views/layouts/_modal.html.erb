@@ -1,0 +1,17 @@
+<div data-controller="dialog" data-action="click->dialog#clickOutside">
+  <button data-action="click->dialog#open">Open modal</button>
+  <dialog data-dialog-target="modal" class="backdrop:bg-slate-400 backdrop:opacity-80 w-full lg:w-2/3">
+    <div class="p-4">
+      <p>Greetings, one and all!</p>
+      <form>
+        <button formmethod="dialog">Cancel</button>
+        <button>Submit</button>
+      </form>
+      <% (1..100).each do |i| %>
+        <div class="bg-rose-400">
+          <%= i%>
+        </div>
+      <% end %>
+    </div>
+  </dialog>
+</div>

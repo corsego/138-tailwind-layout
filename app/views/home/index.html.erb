@@ -2,3 +2,57 @@
   <h1 class="font-bold text-4xl">Home#index</h1>
   <p>Find me in app/views/home/index.html.erb</p>
 </div>
+
+2-column layout with fixed widths
+<div class="flex flex-col md:flex-row gap-4">
+  <div class="w-full md:w-3/4">
+    <% (1..10).each do |i| %>
+      <div class="bg-rose-400">
+        <%= i%>
+      </div>
+    <% end %>
+  </div>
+  <div class="w-full md:w-1/4">
+    <% (11..20).each do |i| %>
+      <div class="bg-rose-300">
+        <%= i%>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+2-column layout with max width for first element
+<div class="flex flex-col md:flex-row gap-4">
+  <div class="flex-1">
+    <% (101..110).each do |i| %>
+      <div class="bg-rose-400">
+        <%= i%>
+      </div>
+    <% end %>
+  </div>
+  <div class="">
+    <% (111..120).each do |i| %>
+      <div class="bg-rose-300">
+        <%= i%>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+centered
+<div class="mx-auto w-full md:w-2/3">
+  <% (201..210).each do |i| %>
+    <div class="bg-rose-300">
+      <%= i%>
+    </div>
+  <% end %>
+</div>
+
+responsive grid
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 bg-rose-200 gap-2">
+  <% (301..310).each do |i| %>
+    <div class="bg-rose-300">
+      <%= i%>
+    </div>
+  <% end %>
+</div>
